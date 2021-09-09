@@ -199,7 +199,7 @@ module.exports = {
   }
 }
 ```
-As visible, it kind of bubbles up in a sense of loading "loaders"!
+As visible, it kind of bubbles up in a sense of loading "loaders"! Loaders are chained one after the other. The first loader passes down its transformation to another. The last loader must return a JavaScript to the webpack.
 
 Now, there are 3 types of loaders in webpack:
 
@@ -223,5 +223,9 @@ import Styles from "-!style-loader!css-loader?{\"module\": \"true\"}!scss-loader
 
 // notice that I passed "module" options in the query parameter in 3 ways - directly as it was boolean, key=value way, and then in objectJSON manner
 ```
+It's always recommended to use webpack.config.js file to load loaders in order to maintain the code in the scenario of errors and future scalability.
 
 These loaders can be found in the [loaders webpack page](https://webpack.js.org/loaders/) or directly from [npm site](https://www.npmjs.com/)
+
+
+
